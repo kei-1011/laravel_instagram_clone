@@ -12,6 +12,7 @@
     background-image: url("/images/logo.png");
   }
   &-nav {
+    flex-direction: row;
     & > li {
       margin-left: 20px;
       &:first-child {

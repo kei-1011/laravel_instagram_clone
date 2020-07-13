@@ -26,4 +26,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * hasManyは、他のモデルとの間に「1対多」のつながりがあることを示す。「1側」にhasManyを追加
+     */
+    public function posts() {
+        return $this->hasMany('App\Post');
+    }
 }
