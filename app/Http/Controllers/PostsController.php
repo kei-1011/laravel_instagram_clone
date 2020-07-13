@@ -53,4 +53,15 @@ class PostsController extends Controller
 
         return redirect('/');
     }
+
+    // 投稿削除処理
+    public function destroy($post_id) {
+
+        // post-idから指定の投稿を取得
+        $post = Post::find($post_id);
+
+        // 取得した投稿データを削除
+        $post->delete();
+        return redirect('/');
+    }
 }
