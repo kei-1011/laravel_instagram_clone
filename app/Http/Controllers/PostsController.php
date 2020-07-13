@@ -14,14 +14,22 @@ class PostsController extends Controller
         $this->middleware('auth');
     }
 
+    // 投稿一覧（トップページ）
     public function index() {
-        return view('post/index');
+
+        // 10件の投稿を最新の日時順で取得
+        $posts = Post::limit(10)->orderBy('created_at', 'desc')->get();
+        return view('post/index', [
+            'posts' => $posts,
+        ]);
     }
 
+    // 投稿ページ
     public function new() {
         return view('post/new');
     }
 
+    // 投稿処理
     public function store(Request $request) {
 
         // validation入力チェック
