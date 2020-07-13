@@ -42,4 +42,12 @@ Route::get('/posts/new','PostsController@new')->name('new');
 // 投稿新規処理
 Route::post('/posts','PostsController@store');
 
+// 削除処理
 Route::get('/postsdelete/{post_id}','PostsController@destroy');
+
+
+// いいね
+Route::get('/posts/{post_id}/likes','LikesController@store');
+
+// いいね取り消し
+Route::get('/likes/{like_id}','LikesController@destroy');
