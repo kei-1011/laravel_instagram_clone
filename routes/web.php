@@ -51,3 +51,10 @@ Route::get('/posts/{post_id}/likes','LikesController@store');
 
 // いいね取り消し
 Route::get('/likes/{like_id}','LikesController@destroy');
+
+
+//コメント投稿処理
+Route::post('/posts/{comment_id}/comments','CommentsController@store');
+
+//コメント取消処理
+Route::get('/comments/{comment_id}', 'CommentsController@destroy');
