@@ -17,6 +17,28 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-const app = new Vue({
-    el: '#app'
+// const app = new Vue({
+//     el: '#app'
+// });
+
+
+$(function () {
+    /**
+     * コメント欄でenterでsubmit、shift+enterで改行
+     */
+    $(document).on("keypress", ".comment-input", function (e) {
+        var form = $(this).parent().parent('form');
+
+        console.log(form);
+        if (e.keyCode == 13) {
+            if (e.shiftKey) {
+            $.noop();
+            } else if ($(this).val().replace(/\s/g, "").length > 0) {
+            e.preventDefault();
+            form.submit();
+            }
+        } else {
+            $.noop();
+        }
+    });
 });

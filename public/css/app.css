@@ -8341,13 +8341,13 @@ button.close {
 
 .navbar__brand {
   height: 65px;
-  width: 210px;
+  width: 220px;
   background-size: 220px;
 }
 
 .navbar__mainLogo {
   background-repeat: no-repeat;
-  background-image: url("/images/logo.png");
+  background-image: url("https://fontmeme.com/permalink/200718/19efe2a9172747bb69e50958ff67a1b7.png");
 }
 
 .navbar-nav {
@@ -8408,7 +8408,7 @@ body {
 }
 
 .logo-img {
-  background-image: url("/images/logo.png");
+  background-image: url("https://fontmeme.com/permalink/200718/19efe2a9172747bb69e50958ff67a1b7.png");
   background-repeat: no-repeat;
   height: 56px;
   width: 180px;
@@ -8571,7 +8571,7 @@ footer {
   font-size: 20px;
 }
 
-.loved {
+.love.loved {
   background-image: url("/images/parts7.png");
   background-repeat: no-repeat;
   height: 36px;
@@ -8594,5 +8594,31 @@ footer {
   float: right;
   margin: 5px 0 0 10px;
   background-size: 11px !important;
+}
+
+#new_comment {
+  padding: 5px;
+}
+
+#new_comment .comment_submit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#new_comment .comment_submit .comment-input {
+  resize: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+#new_comment .comment_submit button {
+  border: none;
+  background-color: none;
+  display: inline-block;
+  background: none;
+  white-space: nowrap;
+  color: #0095f6;
+  font-weight: bold;
 }
 

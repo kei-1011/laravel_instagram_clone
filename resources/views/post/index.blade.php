@@ -36,7 +36,7 @@
             <div id="like-icon-post-{{ $post->id }}">
               {{-- サインインしているユーザーのいいねがあるかをチェック --}}
               @if ($post->likedBy(Auth::user())->count() > 0)
-                <a class="loved hide-text" data-remote="true" rel="nofollow" data-method="DELETE" href="/likes/{{ $post->likedBy(Auth::user())->firstOrFail()->id }}">いいねを取り消す</a>
+                <a class="love loved hide-text" data-remote="true" rel="nofollow" data-method="DELETE" href="/likes/{{ $post->likedBy(Auth::user())->firstOrFail()->id }}">いいねを取り消す</a>
               @else
                 <a class="love hide-text" data-remote="true" rel="nofollow" data-method="POST" href="/posts/{{ $post->id }}/likes">いいね</a>
               @endif
@@ -56,11 +56,15 @@
           <a class="light-color post-time no-text-decoration" href="/posts/{{ $post->id }}">{{ $post->created_at }}</a>
           <hr>
           <div class="row actions" id="comment-form-post-{{ $post->id }}">
-            <form class="w-100" id="new_comment" action="/posts/{{ $post->id }}/comments" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓" />
+            <form class="w-100 new_comment" id="new_comment" action="/posts/{{ $post->id }}/comments" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓" />
               {{csrf_field()}}
               <input value="{{ Auth::user()->id }}" type="hidden" name="user_id" />
               <input value="{{ $post->id }}" type="hidden" name="post_id" />
-              <input class="form-control comment-input border-0" placeholder="コメント ..." autocomplete="off" type="text" name="comment" />
+              <div class="comment_submit">
+                <textarea name="comment" cols="1" rows="1" class="form-control comment-input border-0" autocomplete="off" placeholder="コメントを追加"></textarea>
+                {{-- <input class="form-control comment-input border-0" placeholder="コメント ..." autocomplete="off" type="text" name="comment" /> --}}
+                <button type="submit">投稿する</button>
+              </div>
             </form>
           </div>
         </div>
